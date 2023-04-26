@@ -3,4 +3,7 @@
 * Practiced some of C# syntax to familiarize myself with it
 
 #  Monday April 24th
-* Continued practicing the syntax of C#
+* Installed .NET and continued practicing the syntax of C#
+
+# Tuesday April 25th
+* Practiced OOP and Routing with C#

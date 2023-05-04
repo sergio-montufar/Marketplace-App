@@ -3,7 +3,7 @@
 Name: TBD
 
 # Description
-This app will be a omline marketplace where users are able to sell their furniture whether its new or used! Users will be able to look at the items and all of its details with a single click! Users are also able to update their own item and be able to change whatever they want. 
+This app will be a online marketplace where users are able to sell their furniture whether its new or used! Users will be able to look at the items and all of its details with a single click! Users are also able to update their own item and be able to change whatever they want. 
 
 # Minimum Viable Product 
 * Have users create their own profiles with their names, email, DOB, pronouns, etc.

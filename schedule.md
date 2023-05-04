@@ -7,3 +7,12 @@
 
 # Tuesday April 25th
 * Practiced OOP and Routing with C#
+
+# Thursday April 27th
+* Practiced Models by creating a Turtle API, however I ran into a problem with ConnectionString
+
+# Saturday April 29th
+* 
+
+# Tuesday May 2nd
+*

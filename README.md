@@ -7,7 +7,7 @@ This app will be a online marketplace where users are able to sell their furnitu
 
 # Minimum Viable Product 
 * Have users create their own profiles with their names, email, DOB, pronouns, etc.
-* Users should also be able to . 
+* Users should also be able to create an account with a username and password. 
 * Create, Read, Update, and Delete (CRUD) functionality will be implemented.
 * Implement the backend with C# and .Net which will be a lot of fun to learn.
 

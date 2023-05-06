@@ -10,18 +10,17 @@ namespace marketplaceapp.Controllers {
     private readonly IUserRepository _repository;
     public UserController(IUserRepository repository) {
       _repository = repository;
-    }
+    } 
 
 
-    [HttpPost("/register")]
+    [HttpPost("register")]
     public IActionResult Register(RegisterDto dto) {
-      Console.WriteLine(dto.Username);
       var user = new User {
         Username = dto.Username,
         Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
       };
 
-      return Created("s uccess", _repository.Create(user));
+      return Created("Success", _repository.Create(user));
     }
   }
 }

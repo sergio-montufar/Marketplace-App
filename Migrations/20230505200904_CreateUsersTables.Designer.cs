@@ -10,7 +10,7 @@ using marketplaceapp.Models;
 
 namespace marketplaceapp.Migrations
 {
-    [DbContext(typeof(UserContext))]
+    [DbContext(typeof(UserContext2))]
     [Migration("20230505200904_CreateUsersTables")]
     partial class CreateUsersTables
     {

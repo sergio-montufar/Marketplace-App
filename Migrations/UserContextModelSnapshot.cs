@@ -9,7 +9,7 @@ using marketplaceapp.Models;
 
 namespace marketplaceapp.Migrations
 {
-    [DbContext(typeof(UserContext))]
+    [DbContext(typeof(UserContext2))]
     partial class UserContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

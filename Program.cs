@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using marketplaceapp.Models;
+using marketplaceapp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("UserConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
@@ -9,7 +10,7 @@ var connectionString = builder.Configuration.GetConnectionString("UserConnection
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ProductContext>(opt => opt.UseInMemoryDatabase("marketplaceapp"));
 builder.Services.AddDbContext<UserContext2>(opt => opt.UseNpgsql(connectionString));
-
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     // .AddEntityFrameworkStores<ApplicationDbContext>();

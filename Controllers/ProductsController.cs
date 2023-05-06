@@ -16,9 +16,9 @@ namespace marketplaceapp.Controllers {
         }
 
         // GET: /Products
-        
-        [HttpGet]
         [EnableCors]
+        [HttpGet]
+
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts() {
             if (_context.Products == null) {
               return NotFound();
@@ -27,8 +27,8 @@ namespace marketplaceapp.Controllers {
         }
 
         // GET: /Products/5
-        [HttpGet("{id}")]
         [EnableCors]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(long id) {
             if (_context.Products == null) {
               return NotFound();
@@ -45,9 +45,8 @@ namespace marketplaceapp.Controllers {
 
         // PUT: /Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-
-        [HttpPut("{id}")]
         [EnableCors]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(long id, Product product) {
             if (id != product.Id) {
                 return BadRequest();
@@ -71,8 +70,8 @@ namespace marketplaceapp.Controllers {
 
         // POST: /Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
         [EnableCors]
+        [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product) {
             if (_context.Products == null) {
               return Problem("Entity set 'ProductContext.Products' is null.");
@@ -85,8 +84,8 @@ namespace marketplaceapp.Controllers {
         }
 
         // DELETE: Products/5
-        [HttpDelete("{id}")]
         [EnableCors]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(long id) {
             if (_context.Products == null) {
                 return NotFound();

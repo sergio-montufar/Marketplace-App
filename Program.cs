@@ -7,16 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("UserConnection") ?? throw new InvalidOperationException("Connection string '' not found.");
 
 // Configure the HTTP request pipeline.
-if (builder.Environment.IsDevelopment())
-{
-    builder.Services.AddCors(options => {
-        options.AddDefaultPolicy(policy => {
-            policy.WithOrigins("http://localhost:3000")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-    });  
-}
+builder.Services.AddCors(options => {
+    options.AddDefaultPolicy(policy => {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+}); 
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -29,8 +27,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
 
 // When in doubt, comment out redirection
 app.UseHttpsRedirection();

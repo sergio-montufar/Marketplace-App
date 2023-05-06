@@ -4,17 +4,13 @@ using marketplaceapp.Models;
 using marketplaceapp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("UserConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("UserConnection") ?? throw new InvalidOperationException("Connection string '' not found.");
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ProductContext>(opt => opt.UseInMemoryDatabase("marketplaceapp"));
 builder.Services.AddDbContext<UserContext2>(opt => opt.UseNpgsql(connectionString));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
-// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    // .AddEntityFrameworkStores<ApplicationDbContext>();
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

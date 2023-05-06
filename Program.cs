@@ -9,7 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("UserConnection
 // Configure the HTTP request pipeline.
 builder.Services.AddCors(options => {
     options.AddDefaultPolicy(policy => {
-        policy.WithOrigins("http://localhost:3000", "https://main--astounding-crumble-f6b213.netlify.app/products")
+        policy.WithOrigins("http://localhost:3000", "https://main--astounding-crumble-f6b213.netlify.app")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });

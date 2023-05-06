@@ -7,7 +7,7 @@ namespace marketplaceapp.Controllers {
     
     [Route("/[controller]")]
     [ApiController]
-    [DisableCors]
+    [EnableCors]
     public class ProductsController : ControllerBase {
         private readonly ProductContext _context;
 
@@ -18,7 +18,7 @@ namespace marketplaceapp.Controllers {
         // GET: /Products
         
         [HttpGet]
-        [DisableCors]
+        [EnableCors]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts() {
             if (_context.Products == null) {
               return NotFound();
@@ -28,7 +28,7 @@ namespace marketplaceapp.Controllers {
 
         // GET: /Products/5
         [HttpGet("{id}")]
-        [DisableCors]
+        [EnableCors]
         public async Task<ActionResult<Product>> GetProduct(long id) {
             if (_context.Products == null) {
               return NotFound();
@@ -47,7 +47,7 @@ namespace marketplaceapp.Controllers {
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 
         [HttpPut("{id}")]
-        [DisableCors]
+        [EnableCors]
         public async Task<IActionResult> PutProduct(long id, Product product) {
             if (id != product.Id) {
                 return BadRequest();
@@ -72,7 +72,7 @@ namespace marketplaceapp.Controllers {
         // POST: /Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [DisableCors]
+        [EnableCors]
         public async Task<ActionResult<Product>> PostProduct(Product product) {
             if (_context.Products == null) {
               return Problem("Entity set 'ProductContext.Products' is null.");
@@ -86,7 +86,7 @@ namespace marketplaceapp.Controllers {
 
         // DELETE: Products/5
         [HttpDelete("{id}")]
-        [DisableCors]
+        [EnableCors]
         public async Task<IActionResult> DeleteProduct(long id) {
             if (_context.Products == null) {
                 return NotFound();
@@ -103,7 +103,7 @@ namespace marketplaceapp.Controllers {
 
             return NoContent();
         }
-        [DisableCors]
+        [EnableCors]
         private bool ProductExists(long id) {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
         }

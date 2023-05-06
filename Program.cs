@@ -6,6 +6,18 @@ using marketplaceapp.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("UserConnection") ?? throw new InvalidOperationException("Connection string '' not found.");
 
+// Configure the HTTP request pipeline.
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddCors(options => {
+        options.AddDefaultPolicy(policy => {
+            policy.WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    });  
+}
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ProductContext>(opt => opt.UseInMemoryDatabase("marketplaceapp"));
@@ -16,28 +28,17 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure the HTTP request pipeline.
-if (builder.Environment.IsDevelopment())
-{
-    // builder.Services.AddCors(options => {
-    //     options.AddDefaultPolicy(policy => {
-    //         policy.AllowAnyOrigin()
-    //             .AllowAnyHeader()
-    //             .AllowAnyMethod();
-    //     });
-    // });  
-}
-
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
 // When in doubt, comment out redirection
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-// app.UseCors();
+app.UseCors();
+app.UseAuthorization();
 
 app.MapControllers();
 app.MapControllerRoute(

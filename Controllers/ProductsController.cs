@@ -4,9 +4,10 @@ using marketplaceapp.Models;
 using Microsoft.AspNetCore.Cors;
 
 namespace marketplaceapp.Controllers {
-    [DisableCors]
+    
     [Route("/[controller]")]
     [ApiController]
+    [DisableCors]
     public class ProductsController : ControllerBase {
         private readonly ProductContext _context;
 
@@ -15,8 +16,9 @@ namespace marketplaceapp.Controllers {
         }
 
         // GET: /Products
-        [DisableCors]
+        
         [HttpGet]
+        [DisableCors]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts() {
             if (_context.Products == null) {
               return NotFound();
@@ -25,8 +27,8 @@ namespace marketplaceapp.Controllers {
         }
 
         // GET: /Products/5
-        [DisableCors]
         [HttpGet("{id}")]
+        [DisableCors]
         public async Task<ActionResult<Product>> GetProduct(long id) {
             if (_context.Products == null) {
               return NotFound();
@@ -43,8 +45,9 @@ namespace marketplaceapp.Controllers {
 
         // PUT: /Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [DisableCors]
+
         [HttpPut("{id}")]
+        [DisableCors]
         public async Task<IActionResult> PutProduct(long id, Product product) {
             if (id != product.Id) {
                 return BadRequest();
@@ -68,8 +71,8 @@ namespace marketplaceapp.Controllers {
 
         // POST: /Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [DisableCors]
         [HttpPost]
+        [DisableCors]
         public async Task<ActionResult<Product>> PostProduct(Product product) {
             if (_context.Products == null) {
               return Problem("Entity set 'ProductContext.Products' is null.");
@@ -82,8 +85,8 @@ namespace marketplaceapp.Controllers {
         }
 
         // DELETE: Products/5
-        [DisableCors]
         [HttpDelete("{id}")]
+        [DisableCors]
         public async Task<IActionResult> DeleteProduct(long id) {
             if (_context.Products == null) {
                 return NotFound();
@@ -100,7 +103,7 @@ namespace marketplaceapp.Controllers {
 
             return NoContent();
         }
-
+        [DisableCors]
         private bool ProductExists(long id) {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
         }

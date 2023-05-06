@@ -19,13 +19,13 @@ builder.Services.AddSwaggerGen();
 // Configure the HTTP request pipeline.
 if (builder.Environment.IsDevelopment())
 {
-    builder.Services.AddCors(options => {
-        options.AddDefaultPolicy(policy => {
-            policy.AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-    });  
+    // builder.Services.AddCors(options => {
+    //     options.AddDefaultPolicy(policy => {
+    //         policy.AllowAnyOrigin()
+    //             .AllowAnyHeader()
+    //             .AllowAnyMethod();
+    //     });
+    // });  
 }
 
 var app = builder.Build();
@@ -33,11 +33,11 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 // When in doubt, comment out redirection
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors();
+// app.UseCors();
 
 app.MapControllers();
 app.MapControllerRoute(

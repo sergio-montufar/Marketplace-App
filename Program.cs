@@ -33,7 +33,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 // When in doubt, comment out redirection
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
